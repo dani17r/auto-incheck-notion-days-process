@@ -1,0 +1,21 @@
+{
+  "name": "koa-notion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@notionhq/client": "^2.2.15",
+    "dotenv": "^16.4.5",
+    "koa": "^2.15.3",
+    "koa-router": "^12.0.1",
+    "node-cron": "^3.0.3",
+    "notion-client": "^6.16.0"
+  },
+  "type": "module"
+}
