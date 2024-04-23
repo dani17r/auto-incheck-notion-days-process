@@ -1,3 +1,6 @@
+const Koa = require('koa');
+const app = new Koa();
+
 import { Client } from '@notionhq/client';
 import cron from 'node-cron';
 
@@ -35,3 +38,10 @@ const action = async ()=> {
 const hourZero = '0 0 * * *';
 // const hourZero = '* * * * *';
 cron.schedule(hourZero, action /*, options*/);
+
+
+app.use(async ctx => {
+  ctx.body = 'Hello World';
+});
+
+app.listen(process.env.PORT || 3000);
