@@ -32,6 +32,6 @@ const action = async ()=> {
 //    timezone: "America/Sao_Paulo"
 // }
 
-// const hourZero = '0 0 * * *';
-const hourZero = '* * * * *';
+const hourZero = '0 0 * * *';
+// const hourZero = '* * * * *';
 cron.schedule(hourZero, action /*, options*/);
