@@ -6,7 +6,7 @@ import cron from 'node-cron';
 
 const notion = new Client({ auth:process.env.API_KEY });
 
-const action = async ()=> {
+const oneAction = async ()=> {
   try {
     console.log("log de ejecucion: "+new Date());
     const pages = await notion.databases.query({
@@ -30,18 +30,23 @@ const action = async ()=> {
   }
 };
 
-// const options =  {
-//    scheduled: true,
-//    timezone: "America/Sao_Paulo"
-// }
+const twoAction = async () => {
+  const response = await fetch("https://auto-incheck-notion-days-process.onrender.com/").then((resp)=> resp.json());
 
-// const hourZero = '0 0 * * *';
-const hourZero = '* * * * *';
-cron.schedule(hourZero, action /*, options*/);
+  console.log("llamado para mantener activo el servidor", response);
+}
+
+// const zeroHour = '0 0 * * *';
+const oneMinute = '* * * * *';
+const threeHour = '0 */3 * * *';
+
+cron.schedule(oneMinute, oneAction);
+
+cron.schedule(threeHour, twoAction);
 
 
-app.use(async ctx => {
-  ctx.body = 'Hello World';
+app.use(ctx => {
+  return ctx.body = 'Hello World';
 });
 
 app.listen(process.env.PORT || 3000);
