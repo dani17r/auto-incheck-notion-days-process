@@ -36,11 +36,11 @@ const twoAction = async () => {
   console.log("llamado para mantener activo el servidor", response);
 }
 
-// const zeroHour = '0 0 * * *';
-const oneMinute = '* * * * *';
+const zeroHour = '0 0 * * *';
+// const oneMinute = '* * * * *';
 const threeHour = '0 */3 * * *';
 
-cron.schedule(oneMinute, oneAction);
+cron.schedule(zeroHour, oneAction);
 
 cron.schedule(threeHour, twoAction);
 
